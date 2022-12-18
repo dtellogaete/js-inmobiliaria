@@ -6,14 +6,10 @@ const filterProperties = () => {
   const squareMInitial = document.querySelector("#sqr_meter_initial").value;
   const squareMEnd = document.querySelector("#sqr_meter_end").value;
 
-  if (quantityRooms && squareMInitial && squareMEnd ){    
-    if(squareMInitial < squareMEnd){
-      return [
-        quantityRooms, squareMInitial, squareMEnd,
-      ]
-    }else{
-      alert('El valor "desde" debe ser inferior al valor "hasta"')
-    }    
+  if (quantityRooms && squareMInitial && squareMEnd ){        
+    return [
+      quantityRooms, squareMInitial, squareMEnd,
+    ]    
   } else{
     alert("Todos los campos son obligatorios");
   } 
