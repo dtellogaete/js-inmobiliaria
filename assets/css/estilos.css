@@ -13,7 +13,7 @@ body{
 nav{
     padding: 20px 15%; 
     border-right: solid 0.5px #18978F;
-    height:100vh
+    height:100%;
 }
 
 nav section {

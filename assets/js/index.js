@@ -4,27 +4,31 @@ const filterProperties = () => {
   /* Inputs */
   const quantityRooms = document.querySelector("#rooms").value;
   const squareMInitial = document.querySelector("#sqr_meter_initial").value;
-  const squareMEnd = document.querySelector("#sqr_meter_end").value;
+  const squareMEnd = document.querySelector("#sqr_meter_end").value; 
 
   if (quantityRooms && squareMInitial && squareMEnd ){        
     return [
       quantityRooms, squareMInitial, squareMEnd,
     ]    
   } else{
-    alert("Todos los campos son obligatorios");
+    alert("Todos los campos son obligatorios");        
   } 
 };
 
-/* Función que muestras las propiedades */
+/* Función que muestras las propiedades filtradas */
 
-const showProperties = () => {  
-  let filter = filterProperties();
+const showProperties = (filter_variable) => { 
+  let filter = filter_variable;  
+  console.log("filter "+ filter);
   let cards = document.querySelector(".propiedades");
   let total = document.querySelector("#total")
   let html ='';
   let cont =0;
   for(let property of propertiesJSON){
-    if (property.rooms == filter[0] && property.m >= filter[1] && property.m <= filter[2]){ 
+    if (
+      (property.rooms == filter[0] && property.m >= filter[1] && property.m <= filter[2]) || 
+      (filter == 0)
+      ){ 
       cont +=1;     
       html +=`
       <div class="card" style="width: 18rem;">
@@ -49,3 +53,5 @@ const showProperties = () => {
   cards.innerHTML = html;
   total.innerHTML = cont;
 };
+
+showProperties(0);
